@@ -2,17 +2,17 @@ import React from "react";
 import emojipedia from "../emojipedia";
 import Entry from "./Entry";
 
-function createEntry(emojiTerm) {
-  return (
-    <Entry
-      id={emojiTerm.id}
-      key={emojiTerm.id}
-      emoji={emojiTerm.emoji}
-      name={emojiTerm.name}
-      description={emojiTerm.meaning}
-    />
-  );
-}
+// function createEntry(emojiTerm) {
+//   return (
+//     <Entry
+//       id={emojiTerm.id}
+//       key={emojiTerm.id}
+//       emoji={emojiTerm.emoji}
+//       name={emojiTerm.name}
+//       description={emojiTerm.meaning}
+//     />
+//   );
+// }
 
 function App() {
   return (
@@ -21,7 +21,17 @@ function App() {
         <span>emojipedia</span>
       </h1>
 
-      <dl className="dictionary">{emojipedia.map(createEntry)}</dl>
+      <dl className="dictionary">
+        {emojipedia.map((emojiTerm) => (
+          <Entry
+            id={emojiTerm.id}
+            key={emojiTerm.id}
+            emoji={emojiTerm.emoji}
+            name={emojiTerm.name}
+            description={emojiTerm.meaning}
+          />
+        ))}
+      </dl>
       <p>&copy; 2020 Gaurav Kumar</p>
     </div>
   );
